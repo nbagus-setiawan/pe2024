@@ -228,25 +228,24 @@ section.st{padding:0 0 clamp(24px,4vw,48px)}
   .top{margin-bottom:0}
 }
 
-/* Galeri (bento) */
-.gal{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
-.ph{position:relative;aspect-ratio:4/3;border-radius:22px;overflow:hidden;background:var(--tint);border:1.5px solid var(--line);cursor:zoom-in;padding:0;display:block;width:100%;font:inherit;color:var(--blue);transition:transform .5s var(--ease),opacity .6s var(--ease),border-color .25s}
-.ph:first-child{grid-column:1/-1}
+/* Galeri (grid bento rapi: 2 kolom di HP, 4 kolom di layar lebar, tanpa celah).
+   Ukuran kotak diatur lewat GALERI: size:"w" = lebar (2 kolom), size:"t" = tinggi (2 baris). */
+.gal{--row:clamp(112px,34vw,160px);--g:10px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:var(--row);grid-auto-flow:row dense;gap:var(--g)}
+.ph{position:relative;display:block;margin:0;padding:0;width:100%;height:100%;min-width:0;
+  border-radius:16px;overflow:hidden;background:var(--tint);border:1.5px solid var(--line);
+  cursor:zoom-in;font:inherit;color:var(--blue);
+  transition:transform .5s var(--ease),opacity .6s var(--ease),border-color .25s}
 .ph:nth-child(3n+2){background:#FFF1C7;color:#7A5A00}
 .ph span{position:absolute;left:16px;bottom:14px;font-size:.88rem;font-weight:700;z-index:1}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
 .ph::before{content:"";position:absolute;width:55%;aspect-ratio:1;border-radius:50%;right:-12%;top:-18%;background:currentColor;opacity:.1}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
 .ph.has span,.ph.has::before{display:none}
-@media (hover:hover){.ph:hover{transform:translateY(-3px);border-color:var(--blue)}.ph:hover img{transform:scale(1.06)}}
-@media (max-width:759px){.ph:last-child{grid-column:1/-1}}
-@media (min-width:760px){
-  .gal{grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,17vw,200px)}
-  .ph{aspect-ratio:auto;height:100%}
-  .ph:nth-child(1){grid-column:span 2;grid-row:span 2}
-  .ph:nth-child(4){grid-column:span 2}
-  .ph:nth-child(5){grid-column:span 2}
-  .ph:nth-child(6){grid-column:span 2}
-}
+.ph.w{grid-column:span 2}
+.ph.t{grid-row:span 2}
+
+@media (hover:hover){.ph:hover{transform:translateY(-3px);border-color:var(--blue)}.ph:hover img{transform:scale(1.04)}}
+@media (min-width:760px){.gal{grid-template-columns:repeat(4,minmax(0,1fr));--row:clamp(160px,18vw,230px);--g:14px}.ph{border-radius:18px}}
+@media (min-width:1100px){.gal{--g:16px}}
 .lb{position:fixed;inset:0;z-index:40;background:rgba(11,42,26,.82);display:none;place-items:center;padding:24px;cursor:zoom-out}
 .lb.on{display:grid;animation:fadein .3s}
 .lb img{max-height:86vh;max-width:100%;border-radius:16px;animation:zoom .45s var(--ease)}
@@ -474,16 +473,24 @@ var MISI=[
   "Aktif berkontribusi untuk kampus dan masyarakat sekitar."
 ];
 /* Semua gambar struktur */
-var KETUA={n:"Azwil Yoga",r:"Ketua Kelas",foto:"img/ketua"};
+var KETUA={n:"Azwil Yoga Pratama",r:"Ketua Kelas",foto:"img/ketua"};
 var PENGURUS=[
-  {n:"?",r:"Wakil Ketua",foto:"img/wakil"},
-  {n:"?",r:"Sekretaris",foto:"img/sekretaris"},
-  {n:"Khorun Nisa",r:"Bendahara",foto:"img/bendahara"},
-  {n:"?",r:"Seksi Humas",foto:"img/humas"}
+  {n:"Nanda Bagus Setiawan",r:"Wakil Ketua",foto:"img/wakil"},
+  {n:"Novia Fitriginanti",r:"Sekretaris",foto:"img/sekretaris"},
+  {n:"Khoirun Nisa",r:"Bendahara",foto:"img/bendahara"},
+  {n:"Dea Nanda Oktavia",r:"Seksi Humas",foto:"img/humas"}
 ];
+/* Urutan + ukuran sudah diatur agar grid penuh tanpa celah:
+   desktop 4 kolom = [lebar lebar biasa TINGGI] / [biasa biasa biasa TINGGI]
+   HP 2 kolom      = [lebar lebar] / [biasa TINGGI] / [biasa TINGGI] / [biasa biasa]
+   size:"w" untuk foto landscape lebar, size:"t" untuk foto portrait. pos = titik fokus potongan (opsional). */
 var GALERI=[
-  {src:"img/galeri-1",cap:"Kegiatan kelas"},{src:"img/galeri-2",cap:"Kuliah bersama"},{src:"img/galeri-3",cap:"Diskusi kelompok"},
-  {src:"img/galeri-4",cap:"Acara kampus"},{src:"img/galeri-5",cap:"Foto bersama"},{src:"img/galeri-6",cap:"Kebersamaan"}
+  {src:"img/galeri-2",cap:"Kuliah bersama",size:"w"},
+  {src:"img/galeri-1",cap:"Kegiatan kelas"},
+  {src:"img/galeri-5",cap:"Foto bersama",size:"t",pos:"center 35%"},
+  {src:"img/galeri-3",cap:"Diskusi kelompok"},
+  {src:"img/galeri-4",cap:"Acara kampus"},
+  {src:"img/galeri-6",cap:"Kebersamaan"}
 ];
 var KONTAK=[
   {t:"WhatsApp Ketua Kelas",c:"+62 838 9213 9782",url:"https://wa.me/6283892139782",i:"M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"},
@@ -515,7 +522,7 @@ $("nilai").innerHTML=NILAI.map(function(v,k){return '<div class="card rv rr"><di
 $("misi").innerHTML=MISI.map(function(m,k){return '<div class="card mi rv rr"><div class="ic'+(k%2?' y':'')+'">'+(k+1)+'</div><p>'+esc(m)+'</p></div>'}).join("");
 function person(p,top){return '<div class="card pr rv'+(top?' top':'')+'"><button type="button" class="av" aria-label="Lihat foto '+esc(p.n)+'">'+userIc+(p.foto?im(p.foto,"Foto "+p.n):'')+'</button><span class="role">'+esc(p.r)+'</span><h3>'+esc(p.n)+'</h3></div>'}
 $("org").innerHTML=person(KETUA,true)+'<div class="tier">'+PENGURUS.map(function(p){return person(p,false)}).join("")+'</div>';
-$("gal").innerHTML=GALERI.map(function(g){return '<button class="ph rv zi" type="button" aria-label="Perbesar: '+esc(g.cap)+'"><span>'+esc(g.cap)+'</span>'+im(g.src,g.cap,' loading="lazy"')+'</button>'}).join("");
+$("gal").innerHTML=GALERI.map(function(g){var c=g.size==="w"?" w":g.size==="t"?" t":"";var ex=' loading="lazy"'+(g.pos?' style="object-position:'+esc(g.pos)+'"':'');return '<button class="ph rv zi'+c+'" type="button" aria-label="Perbesar: '+esc(g.cap)+'"><span>'+esc(g.cap)+'</span>'+im(g.src,g.cap,ex)+'</button>'}).join("");
 $("kontakl").innerHTML=KONTAK.map(function(c,k){return '<a class="card ct rv" href="'+esc(c.url)+'" target="_blank" rel="noopener"><div class="ic'+(k%2?' y':'')+'">'+svg(c.i)+'</div><span><span class="t">'+esc(c.t)+'</span><span class="c">'+esc(c.c)+'</span></span>'+arrow+'</a>'}).join("");
 /* arah masuk berbeda-beda */
 [].forEach.call(document.querySelectorAll(".visi,.about>.rv"),function(e){e.classList.add("rl")});
