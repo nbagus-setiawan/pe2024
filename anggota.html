@@ -29,9 +29,9 @@ function nx(im){var k=+(im.getAttribute("data-k")||0);if(k<EXT.length){im.setAtt
 :root{color-scheme:light;--bg:#F1F9F4;--card:#FFFFFF;--ink:#0B2A1A;--muted:#5B7266;--line:#D3E8DA;--blue:#0A8F45;--tint:#E2F5E9;--sun:#FFC93C;
   --f:"Century Gothic",CenturyGothic,"Apple Gothic",Questrial,"Segoe UI",sans-serif;--ease:cubic-bezier(.2,.8,.2,1);
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;min-height:100%}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f);font-size:1rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{margin:0;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);font-family:var(--f);font-size:1rem;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%}a{color:inherit}
 .wrap{width:min(1120px,100% - 40px);margin-inline:auto}
 :focus-visible{outline:3px solid var(--blue);outline-offset:3px}
@@ -84,7 +84,7 @@ h1 .ch{display:inline-block;transform:translateY(112%);animation:up .9s var(--ea
 .count b{color:var(--blue)}
 
 /* Grid Anggota (Di awal hanya foto dan nama) */
-main{padding-bottom:clamp(48px,8vw,90px)}
+main{flex:1 0 auto;padding-bottom:clamp(48px,8vw,90px)}
 .grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (min-width:700px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
 @media (min-width:1000px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}}
@@ -312,7 +312,7 @@ main{padding-bottom:clamp(48px,8vw,90px)}
 @media (hover:hover){.totop.show:hover{transform:translateY(-4px)}}
 
 /* Footer */
-footer{background:var(--card);border-top:1.5px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem}
+footer{margin-top:auto;background:var(--card);border-top:1.5px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 footer a{text-decoration:none}footer a:hover{color:var(--blue)}
 
@@ -350,7 +350,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--blue)}
     <div class="wrap">
       <span class="kick fade" style="--i:2">Kelas Putak &middot; Angkatan 2024</span>
       <h1 id="title" aria-label="Anggota PE2024"></h1>
-      <p class="lead fade" style="--i:4">Kenali seluruh anggota kelas Pendidikan Ekonomi angkatan 2024, Universitas Nurul Huda. Ketuk kartu anggota untuk melihat profil lengkap.</p>
+      <p class="lead fade" style="--i:4">Kenali seluruh anggota kelas Pendidikan Ekonomi kelas  putak angkatan 2024, Universitas Nurul Huda. Ketuk kartu anggota untuk melihat profil lengkap.</p>
       <div class="tools fade" style="--i:5">
         <label class="search">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
@@ -438,26 +438,26 @@ footer a{text-decoration:none}footer a:hover{color:var(--blue)}
    r    = jabatan (opsional)
    Jika foto belum ada, kartu menampilkan inisial nama. */
 var ANGGOTA=[
-  {n:"Azwil Yoga",            a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/1",  r:"Ketua Kelas"},
-  {n:"Khorun Nisa",           a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/2",  r:"Bendahara"},
-  {n:"Nama Lengkap Anggota 3",  a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/3"},
-  {n:"Nama Lengkap Anggota 4",  a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/4"},
-  {n:"Nama Lengkap Anggota 5",  a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/5"},
-  {n:"Nama Lengkap Anggota 6",  a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/6"},
-  {n:"Nama Lengkap Anggota 7",  a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/7"},
-  {n:"Nama Lengkap Anggota 8",  a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/8"},
-  {n:"Nama Lengkap Anggota 9",  a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/9"},
-  {n:"Nama Lengkap Anggota 10", a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/10"},
-  {n:"Nama Lengkap Anggota 11", a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/11"},
-  {n:"Nama Lengkap Anggota 12", a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/12"},
-  {n:"Nama Lengkap Anggota 13", a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/13"},
-  {n:"Nama Lengkap Anggota 14", a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/14"},
-  {n:"Nama Lengkap Anggota 15", a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/15"},
-  {n:"Nama Lengkap Anggota 16", a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/16"},
-  {n:"Nama Lengkap Anggota 17", a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/17"},
-  {n:"Nama Lengkap Anggota 18", a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/18"},
-  {n:"Nama Lengkap Anggota 19", a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/19"},
-  {n:"Nama Lengkap Anggota 20", a:"Desa ..., Kec. ..., OKU Timur", ig:"username", foto:"img/anggota/20"}
+  {n:"Azwil Yoga",            a:"...........", ig:"username", foto:"img/anggota/1"},
+  {n:"Khorun Nisa",           a:"...........", ig:"username", foto:"img/anggota/2"},
+  {n:"Nama Lengkap Anggota 3",  a:"...........", ig:"username", foto:"img/anggota/3"},
+  {n:"Nama Lengkap Anggota 4",  a:"...........", ig:"username", foto:"img/anggota/4"},
+  {n:"Nama Lengkap Anggota 5",  a:"...........", ig:"username", foto:"img/anggota/5"},
+  {n:"Nama Lengkap Anggota 6",  a:"...........", ig:"username", foto:"img/anggota/6"},
+  {n:"Nama Lengkap Anggota 7",  a:"...........", ig:"username", foto:"img/anggota/7"},
+  {n:"Nama Lengkap Anggota 8",  a:"...........", ig:"username", foto:"img/anggota/8"},
+  {n:"Nama Lengkap Anggota 9",  a:"...........", ig:"username", foto:"img/anggota/9"},
+  {n:"Nama Lengkap Anggota 10", a:"...........", ig:"username", foto:"img/anggota/10"},
+  {n:"Nama Lengkap Anggota 11", a:"...........", ig:"username", foto:"img/anggota/11"},
+  {n:"Nama Lengkap Anggota 12", a:"...........", ig:"username", foto:"img/anggota/12"},
+  {n:"Nama Lengkap Anggota 13", a:"...........", ig:"username", foto:"img/anggota/13"},
+  {n:"Nama Lengkap Anggota 14", a:"...........", ig:"username", foto:"img/anggota/14"},
+  {n:"Nama Lengkap Anggota 15", a:"...........", ig:"username", foto:"img/anggota/15"},
+  {n:"Nama Lengkap Anggota 16", a:"...........", ig:"username", foto:"img/anggota/16"},
+  {n:"Nama Lengkap Anggota 17", a:"...........", ig:"username", foto:"img/anggota/17"},
+  {n:"Nama Lengkap Anggota 18", a:"...........", ig:"username", foto:"img/anggota/18"},
+  {n:"Nama Lengkap Anggota 19", a:"...........", ig:"username", foto:"img/anggota/19"},
+  {n:"Nama Lengkap Anggota 20", a:"...........", ig:"username", foto:"img/anggota/20"}
 ];
 /* ====== SELESAI ====== */
 
