@@ -163,6 +163,7 @@ h1 .ch{display:inline-block;transform:translateY(112%);animation:up .9s var(--ea
 /* Judul bagian */
 h2{font-size:clamp(1.7rem,4.6vw,2.5rem);line-height:1.15;letter-spacing:-.01em;margin:0;font-weight:700}
 .lead{color:var(--muted);max-width:60ch;margin:0;font-size:clamp(.98rem,2vw,1.08rem)}
+.lead+.lead{margin-top:14px}
 .hd{display:flex;align-items:center;gap:16px;margin-bottom:14px}
 .hd::after{content:"";flex:1;height:2px;background:var(--line);border-radius:2px;transform-origin:left;transform:scaleX(0);transition:transform 1.1s var(--ease) .25s}
 .rv.on .hd::after,.hd.rv.on::after{transform:none}
@@ -406,7 +407,11 @@ h1{max-width:100%}
   <div class="mq" aria-hidden="true"><div class="mq-t" id="mq"></div></div>
 
   <section id="tentang"><div class="wrap about">
-    <div class="rv"><div class="hd"><h2>Tentang</h2></div><p class="lead">PE2024 adalah kelas mahasiswa Program Studi Pendidikan Ekonomi angkatan 2024 di Universitas Nurul Huda, Sukaraja. Kami belajar, bertumbuh, dan bergerak bersama sebagai calon pendidik di bidang ekonomi. (Ganti dengan cerita kelas Anda.)</p></div>
+    <div class="rv">
+      <div class="hd"><h2>Tentang</h2></div>
+      <p class="lead">PE2024 adalah ruang bagi kami, mahasiswa Program Studi Pendidikan Ekonomi Kelas Putak Angkatan 2024 di Universitas Nurul Huda, Sukaraja. Di kelas ini, kami berproses, saling mendukung, dan melangkah bersama sebagai rekan seperjuangan sekaligus calon pendidik dan pelaku bisnis di bidang ekonomi.</p>
+      <p class="lead">Bagi kami, rutinitas perkuliahan di Kelas Putak bukan sekadar tempat memahami teori ekonomi, dunia bisnis, dan metodologi pengajaran. Lebih dari itu, kelas ini adalah tempat kami mengasah karakter, kekompakan, serta kepekaan sosial. Melalui website ini, kami menyimpan dan membagikan catatan perjalanan akademik, tugas, karya, hingga momen kebersamaan di kelas kami selama menempuh masa studi.</p>
+    </div>
     <div class="nl" id="nilai"></div>
   </div></section>
 
@@ -420,7 +425,7 @@ h1{max-width:100%}
   <section id="visi"><div class="wrap">
     <div class="hd rv sec-top"><h2>Visi dan Misi</h2></div>
     <div class="vm">
-      <div class="card visi rv"><small>Visi</small><p>Menjadi kelas yang kompak, unggul dalam akademik, dan melahirkan calon pendidik ekonomi yang berkarakter.</p></div>
+      <div class="card visi rv"><small>Visi</small><p>Menjadikan PE2024 Kelas Putak sebagai ruang belajar yang solid, aktif, dan inspiratif dalam mencetak calon pendidik serta pelaku bisnis di bidang ekonomi yang berkarakter dan adaptif terhadap perkembangan zaman.</p></div>
       <div class="misi" id="misi"></div>
     </div>
   </div></section>
@@ -469,10 +474,10 @@ var NILAI=[
   {t:"Peduli",p:"Menjaga kekeluargaan dan peka terhadap sesama anggota kelas.",i:"M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"}
 ];
 var MISI=[
-  "Membangun budaya belajar yang aktif dan saling mendukung.",
-  "Mengembangkan keterampilan mengajar dan literasi ekonomi.",
-  "Menjaga solidaritas dan komunikasi yang terbuka antaranggota.",
-  "Aktif berkontribusi untuk kampus dan masyarakat sekitar."
+  {t:"Akademik & Pedagogik",p:"Saling mendukung dalam penguasaan keilmuan ekonomi dan inovasi pembelajaran yang kreatif serta aplikatif."},
+  {t:"Jiwa Bisnis",p:"Mengasah keterampilan kewirausahaan, literasi finansial, dan kemandirian ekonomi di kalangan mahasiswa kelas."},
+  {t:"Solidaritas Kelas",p:"Menjaga kekompakan, komunikasi yang sehat, dan rasa kekeluargaan antaranggota Kelas Putak hingga lulus bersama tepat waktu."},
+  {t:"Karya & Digitalisasi",p:"Mendokumentasikan serta mempublikasikan karya akademik maupun kegiatan kelas secara positif dan bermanfaat melalui media digital."}
 ];
 /* Semua gambar struktur */
 var KETUA={n:"Azwil Yoga Pratama",r:"Ketua Kelas",foto:"img/ketua"};
@@ -522,7 +527,7 @@ $("navl").innerHTML=navHtml;$("fnav").innerHTML=navHtml;
 var runSet='<span>'+RUNNING.map(function(w){return esc(w)+star}).join("")+'</span>';
 $("mq").innerHTML=runSet+runSet;
 $("nilai").innerHTML=NILAI.map(function(v,k){return '<div class="card rv rr"><div class="ic'+(k==1?' y':'')+'">'+svg(v.i)+'</div><div><h3>'+esc(v.t)+'</h3><p>'+esc(v.p)+'</p></div></div>'}).join("");
-$("misi").innerHTML=MISI.map(function(m,k){return '<div class="card mi rv rr"><div class="ic'+(k%2?' y':'')+'">'+(k+1)+'</div><p>'+esc(m)+'</p></div>'}).join("");
+$("misi").innerHTML=MISI.map(function(m,k){var c=typeof m==="object"?'<b>'+esc(m.t)+':</b> '+esc(m.p):esc(m);return '<div class="card mi rv rr"><div class="ic'+(k%2?' y':'')+'">'+(k+1)+'</div><p>'+c+'</p></div>'}).join("");
 function person(p,top){return '<div class="card pr rv'+(top?' top':'')+'"><button type="button" class="av" aria-label="Lihat foto '+esc(p.n)+'">'+userIc+(p.foto?im(p.foto,"Foto "+p.n):'')+'</button><span class="role">'+esc(p.r)+'</span><h3>'+esc(p.n)+'</h3></div>'}
 $("org").innerHTML=person(KETUA,true)+'<div class="tier">'+PENGURUS.map(function(p){return person(p,false)}).join("")+'</div>';
 $("gal").innerHTML=GALERI.map(function(g){var c=g.size==="w"?" w":g.size==="t"?" t":"";var ex=' loading="lazy"'+(g.pos?' style="object-position:'+esc(g.pos)+'"':'');return '<button class="ph rv zi'+c+'" type="button" aria-label="Perbesar: '+esc(g.cap)+'"><span>'+esc(g.cap)+'</span>'+im(g.src,g.cap,ex)+'</button>'}).join("");
