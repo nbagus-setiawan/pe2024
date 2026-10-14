@@ -75,7 +75,8 @@ h1{font-size:clamp(2.6rem,14vw,6.2rem);line-height:1;letter-spacing:-.025em;marg
 h1 .m{display:inline-block;overflow:hidden;padding:0 .01em .1em}
 h1 .ch{display:inline-block;transform:translateY(112%);animation:up .9s var(--ease) forwards;animation-delay:calc(1.95s + var(--k)*.07s)}
 @keyframes up{to{transform:none}}
-.tag{margin:0 auto;max-width:36ch;color:var(--muted);font-size:clamp(1rem,2.4vw,1.15rem)}
+/* Teks pengantar: dilebarkan agar tidak menumpuk jadi banyak baris */
+.tag{margin:0 auto;max-width:62ch;color:var(--muted);font-size:clamp(1rem,2.4vw,1.15rem);line-height:1.7}
 .tag b{display:block;color:var(--ink);font-size:clamp(1.15rem,2.8vw,1.4rem);margin-bottom:6px}
 .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
 .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font-weight:700;font-size:1rem;text-decoration:none;border:1.5px solid var(--blue);transition:transform .3s var(--ease),background .25s,box-shadow .25s;-webkit-tap-highlight-color:transparent}
@@ -310,7 +311,7 @@ h1{max-width:100%}
 /* 5. Tablet (600-959px) */
 @media (min-width:600px) and (max-width:959px){
   .hero .wrap{gap:32px}
-  .tag{max-width:44ch}
+  .tag{max-width:62ch}
 }
 
 @media (max-width:340px){
@@ -352,12 +353,12 @@ h1{max-width:100%}
       <div>
         <img class="logo fade" src="img/logo.png" data-b="img/logo" data-k="0" onerror="nx(this)" alt="Logo PE2024">
         <h1 id="title" aria-label="PE2024"></h1>
-        <p class="tag fade" style="--i:3"><b>Pendidikan Ekonomi</b>Kelas Putak, Universitas Nurul Huda, Sukaraja</p>
+        <p class="tag fade" style="--i:3"><b>Pendidikan Ekonomi</b>Mengenal lebih dekat Kelas Putak, mahasiswa Pendidikan Ekonomi angkatan 2024 di Universitas Nurul Huda. Website ini menjadi wadah untuk mendokumentasikan perjalanan akademik, menampilkan hasil karya, mengeksplorasi pengalaman, serta merepresentasikan kompetensi dan kreativitas mahasiswa dalam proses belajar dan berkembang.</p>
         <div class="ctas fade" style="--i:4">
           <a class="btn p" href="#tentang">Kenali kelas <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn s" href="#galeri">Galeri</a>
         </div>
-        <div class="chips fade" style="--i:5"><span class="chip">Angkatan 2024</span><span class="chip">Universitas Nurul Huda</span><span class="chip">Sukaraja</span></div>
+        <div class="chips fade" style="--i:5"><span class="chip">Angkatan 2024</span><span class="chip">Kelas Putak</span><span class="chip">Universitas Nurul Huda</span><span class="chip">Sukaraja</span></div>
       </div>
       <div class="art" aria-hidden="true">
         <div class="c1"></div><div class="c2"></div><div class="c3"></div>
