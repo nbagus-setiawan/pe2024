@@ -105,18 +105,18 @@ footer b{font-family:var(--serif);font-weight:700;color:var(--ink)}
 <body>
 
 <div class="intro" aria-hidden="true">
-  <img class="logo" src="logo.png" alt="" onerror="this.style.display='none'">
+  <img class="logo" src="img/logo.png" alt="" onerror="this.style.display='none'">
 </div>
 
 <div class="bar" id="bar" aria-hidden="true">
-  <div class="in2"><img src="logo.png" alt="" onerror="this.style.display='none'"><b>PE2024</b></div>
+  <div class="in2"><img src="img/logo.png" alt="" onerror="this.style.display='none'"><b>PE2024</b></div>
   <div class="prog" id="prog"></div>
 </div>
 
 <div class="wrap">
   <section class="hero" id="hero">
     <div class="dots"></div><div class="sh s1"></div><div class="sh s2"></div><div class="sh s3"></div>
-    <img class="logo fade" src="logo.png" alt="Logo PE2024" onerror="this.style.display='none'">
+    <img class="logo fade" src="img/logo.png" alt="Logo PE2024" onerror="this.style.display='none'">
     <h1 aria-label="PE2024" id="title"></h1>
     <p class="tag fade" style="--i:3"><b>Pendidikan Ekonomi</b>Kelas Putak<br>Nurul Huda, Sukaraja</p>
   </section>
@@ -128,7 +128,8 @@ footer b{font-family:var(--serif);font-weight:700;color:var(--ink)}
 
 <script>
 /* GANTI url dengan link Anda (Google Form untuk pengumpulan tugas).
-   b = isi lencana kiri; y:true = lencana kuning. */
+   b = isi lencana kiri; y:true = lencana kuning.
+   Link yang diawali https:// terbuka di tab baru; link internal (profile.html) terbuka di tab yang sama. */
 var user='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c1-4 4.5-6 8-6s7 2 8 6"/></svg>';
 var groups=[
   {h:"",feat:true,items:[
@@ -154,7 +155,8 @@ document.getElementById("title").innerHTML="PE2024".split("").map(function(c,k){
 document.getElementById("groups").innerHTML=groups.map(function(g){
   return (g.h?'<h2 class="rv">'+esc(g.h)+'<small>'+g.items.length+' tautan</small></h2>':'')+'<ul>'+g.items.map(function(l){
     var bd=l.b.charAt(0)==="<"?l.b:esc(l.b);
-    return '<li class="rv"><a class="'+(g.feat?'feat':'')+'" href="'+esc(l.url)+'" target="_blank" rel="noopener"><span class="bd'+(l.y?' y':'')+'">'+bd+'</span><span class="tx"><span class="t">'+esc(l.t)+'</span><span class="c">'+esc(l.c)+'</span></span>'+arrow+'</a></li>';
+    var ext=/^https?:/.test(l.url);
+    return '<li class="rv"><a class="'+(g.feat?'feat':'')+'" href="'+esc(l.url)+'"'+(ext?' target="_blank" rel="noopener"':'')+'><span class="bd'+(l.y?' y':'')+'">'+bd+'</span><span class="tx"><span class="t">'+esc(l.t)+'</span><span class="c">'+esc(l.c)+'</span></span>'+arrow+'</a></li>';
   }).join("")+'</ul>';
 }).join("");
 
@@ -171,18 +173,20 @@ function startReveal(){
 }
 setTimeout(startReveal,rm?0:2200);
 
-/* Bar mini dan progres */
-var bar=document.getElementById("bar"),prog=document.getElementById("prog"),hero=document.getElementById("hero"),tick=false;
+/* Bar mini dan progres.
+   Di mobile: bar muncul begitu halaman digulir dan hilang saat sudah di paling atas. */
+var bar=document.getElementById("bar"),prog=document.getElementById("prog"),hero=document.getElementById("hero"),tick=false,mob=matchMedia("(max-width:900px)");
 function onScroll(){
   if(tick)return;tick=true;
   requestAnimationFrame(function(){
     var y=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;
-    bar.classList.toggle("show",y>hero.offsetHeight-60);
+    bar.classList.toggle("show",mob.matches?y>8:y>hero.offsetHeight-60);
     prog.style.transform="scaleX("+(h>0?Math.min(y/h,1):0)+")";
     tick=false;
   });
 }
-window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+window.addEventListener("scroll",onScroll,{passive:true});
+window.addEventListener("resize",onScroll);onScroll();
 
 /* Cahaya mengikuti kursor pada kartu */
 document.addEventListener("pointermove",function(e){

@@ -4,10 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<title>Profil PE2026 | Pendidikan Ekonomi Kelas Putak</title>
+<title>Profil PE2024 | Pendidikan Ekonomi Kelas Putak</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+<script>
+/* Pemuat gambar: mencoba ekstensi satu per satu jika file tidak ditemukan */
+var EXT=["jpg","jpeg","png","webp","JPG","JPEG","PNG"];
+function nx(im){var k=+(im.getAttribute("data-k")||0);if(k<EXT.length){im.setAttribute("data-k",k+1);im.src=im.getAttribute("data-b")+"."+EXT[k]}else{im.onerror=null;im.remove()}}
+</script>
 <style>
 :root{color-scheme:light;--bg:#F2F4FC;--card:#FFFFFF;--ink:#0B1230;--muted:#5F6A88;--line:#DCE1F2;--blue:#2338F0;--tint:#E6EAFF;--sun:#FFC93C;
   --f:"Century Gothic",CenturyGothic,"Apple Gothic",Questrial,"Segoe UI",sans-serif;--ease:cubic-bezier(.2,.8,.2,1);
@@ -99,7 +104,7 @@ h1 .ch{display:inline-block;transform:translateY(112%);animation:up .9s var(--ea
 @keyframes bob{to{translate:0 -10px}}
 .fc small{display:block;font-weight:400;color:var(--muted);font-size:.8rem}
 .fc .ic{width:40px;height:40px;border-radius:12px}
-.fc1{top:12%;left:0}.fc2{top:44%;right:0}.fc3{bottom:10%;left:16%}
+.fc1{top:17%;left:25%}.fc2{top:38%;right:-8%}.fc3{bottom:18%;left:20%}
 @media (min-width:960px) and (max-width:1160px){.fc{font-size:.82rem;padding:9px 13px 9px 9px;gap:9px}.fc .ic{width:34px;height:34px}}
 @media (min-width:960px){
   .hero .wrap{grid-template-columns:1.1fr .9fr;text-align:left;justify-items:stretch;gap:56px}
@@ -147,7 +152,8 @@ h2{font-size:clamp(1.7rem,4.6vw,2.5rem);line-height:1.15;letter-spacing:-.01em;m
 /* Angka */
 section.st{padding:0 0 clamp(24px,4vw,48px)}
 .stats{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
-@media (min-width:760px){.stats{grid-template-columns:repeat(4,1fr);gap:16px}}
+@media (min-width:760px){.stats{grid-template-columns:repeat(3,minmax(0,308px));justify-content:center;gap:16px}}
+@media (max-width:759px){.sc:last-child{grid-column:1/-1}}
 .sc{text-align:center;padding:24px 12px}
 .sc .num{display:block;font-size:clamp(2rem,7vw,3.2rem);line-height:1.1;color:var(--blue);letter-spacing:-.02em}
 .sc .num::after{content:"";display:block;width:34px;height:5px;border-radius:5px;background:var(--sun);margin:8px auto 6px}
@@ -276,17 +282,63 @@ footer{background:var(--card);border-top:1.5px solid var(--line);padding:48px 0 
   .hero .wrap>div:first-child{transform:none}.art{translate:none}
   .lb img{animation:none}.lbtn,.av{transition:none}
 }
+
+/* ===== RESPONSIF ===== */
+
+main,footer{max-width:100%;overflow-x:hidden}
+@supports (overflow:clip){main,footer{overflow-x:clip;overflow-y:visible}}
+
+.card,.ct>span,.nl .card>div,.mi p,.hero .wrap>*{min-width:0}
+.card h3,.card p,.ct .t,.ct .c,.lead,.ft p{overflow-wrap:anywhere}
+h1{max-width:100%}
+
+@media (max-width:900px){
+  nav{
+    max-height:calc(100vh - 62px - env(safe-area-inset-top,0px));
+    max-height:calc(100dvh - 62px - env(safe-area-inset-top,0px));
+    overflow-y:auto;overscroll-behavior:contain;
+  }
+}
+
+@media (min-width:960px) and (max-width:1160px){
+  .fc1{left:2%}
+  .fc2{right:-3%}
+  .fc3{left:8%}
+  h1{font-size:clamp(3.4rem,8.5vw,5.2rem)}
+}
+
+/* 5. Tablet (600-959px) */
+@media (min-width:600px) and (max-width:959px){
+  .hero .wrap{gap:32px}
+  .tag{max-width:44ch}
+}
+
+@media (max-width:340px){
+  .brand{font-size:1rem}
+  .brand img{width:28px;height:28px}
+  .hd{gap:10px}
+  h2{font-size:1.5rem}
+  .btn{padding:0 18px;min-height:50px}
+  .chip{font-size:.78rem;padding:6px 12px}
+  .lbp{left:calc(50% - 56px)}.lbf{right:calc(50% - 56px)}
+}
+
+@media (hover:none){nav a{min-height:44px}}
+
+@media (min-width:1800px){
+  .wrap,.bar .row{width:min(1360px,100% - 120px)}
+}
 </style>
 </head>
 <body>
 
 <div class="intro" aria-hidden="true">
-  <img class="logo" src="img/logo.png" alt="" onerror="this.style.display='none'">
+  <img class="logo" src="img/logo.png" data-b="img/logo" data-k="0" onerror="nx(this)" alt="">
 </div>
 
 <header class="bar" id="bar">
   <div class="row">
-    <a class="brand" href="#top"><img src="img/logo.png" alt="" onerror="this.style.display='none'">PE2026</a>
+    <a class="brand" href="#top"><img src="img/logo.png" data-b="img/logo" data-k="0" onerror="nx(this)" alt="">PE2024</a>
     <nav aria-label="Navigasi utama"><ul id="navl"></ul></nav>
     <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
@@ -298,18 +350,18 @@ footer{background:var(--card);border-top:1.5px solid var(--line);padding:48px 0 
     <div class="dots"></div><div class="glow" aria-hidden="true"></div>
     <div class="wrap">
       <div>
-        <img class="logo fade" src="img/logo.png" alt="Logo PE2026" onerror="this.style.display='none'">
-        <h1 id="title" aria-label="PE2026"></h1>
+        <img class="logo fade" src="img/logo.png" data-b="img/logo" data-k="0" onerror="nx(this)" alt="Logo PE2024">
+        <h1 id="title" aria-label="PE2024"></h1>
         <p class="tag fade" style="--i:3"><b>Pendidikan Ekonomi</b>Kelas Putak, Universitas Nurul Huda, Sukaraja</p>
         <div class="ctas fade" style="--i:4">
           <a class="btn p" href="#tentang">Kenali kelas <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn s" href="#">Kumpulkan tugas</a>
+          <a class="btn s" href="#galeri">Galeri</a>
         </div>
-        <div class="chips fade" style="--i:5"><span class="chip">Angkatan 2026</span><span class="chip">Universitas Nurul Huda</span><span class="chip">Sukaraja</span></div>
+        <div class="chips fade" style="--i:5"><span class="chip">Angkatan 2024</span><span class="chip">Universitas Nurul Huda</span><span class="chip">Sukaraja</span></div>
       </div>
       <div class="art" aria-hidden="true">
         <div class="c1"></div><div class="c2"></div><div class="c3"></div>
-        <div class="fc fc1 fade" style="--i:4"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16v13H4zM8 7V4h8v3M4 12h16"/></svg></span><span>Angkatan 2026<small>Kelas Putak</small></span></div>
+        <div class="fc fc1 fade" style="--i:4"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16v13H4zM8 7V4h8v3M4 12h16"/></svg></span><span>Angkatan 2024<small>Kelas Putak</small></span></div>
         <div class="fc fc2 fade" style="--i:5"><span class="ic y"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5zM7 11.5V16c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"/></svg></span><span>Pendidikan Ekonomi<small>Program studi</small></span></div>
         <div class="fc fc3 fade" style="--i:6"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11zM12 7.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5"/></svg></span><span>Universitas Nurul Huda<small>Sukaraja</small></span></div>
       </div>
@@ -319,16 +371,15 @@ footer{background:var(--card);border-top:1.5px solid var(--line);padding:48px 0 
   <div class="mq" aria-hidden="true"><div class="mq-t" id="mq"></div></div>
 
   <section id="tentang"><div class="wrap about">
-    <div class="rv"><div class="hd"><h2>Tentang</h2></div><p class="lead">PE2026 adalah kelas mahasiswa Program Studi Pendidikan Ekonomi angkatan 2026 di Universitas Nurul Huda, Sukaraja. Kami belajar, bertumbuh, dan bergerak bersama sebagai calon pendidik di bidang ekonomi. (Ganti dengan cerita kelas Anda.)</p></div>
+    <div class="rv"><div class="hd"><h2>Tentang</h2></div><p class="lead">PE2024 adalah kelas mahasiswa Program Studi Pendidikan Ekonomi angkatan 2024 di Universitas Nurul Huda, Sukaraja. Kami belajar, bertumbuh, dan bergerak bersama sebagai calon pendidik di bidang ekonomi. (Ganti dengan cerita kelas Anda.)</p></div>
     <div class="nl" id="nilai"></div>
   </div></section>
 
   <!-- Angka kelas: ubah data-to sesuai kondisi kelas Anda (jumlah mahasiswa hanya contoh) -->
   <section class="st" id="angka"><div class="wrap"><div class="stats">
-    <div class="card sc rv"><b class="num" data-to="2026">0</b><span>Angkatan</span></div>
-    <div class="card sc rv"><b class="num" data-to="30" data-s="+">0</b><span>Mahasiswa</span></div>
+    <div class="card sc rv"><b class="num" data-to="2024">0</b><span>Angkatan</span></div>
+    <div class="card sc rv"><b class="num" data-to="20" data-s="+">0</b><span>Mahasiswa</span></div>
     <div class="card sc rv"><b class="num" data-to="4">0</b><span>Misi kelas</span></div>
-    <div class="card sc rv"><b class="num" data-to="8">0</b><span>Tugas semester</span></div>
   </div></div></section>
 
   <section id="visi"><div class="wrap">
@@ -340,12 +391,12 @@ footer{background:var(--card);border-top:1.5px solid var(--line);padding:48px 0 
   </div></section>
 
   <section id="pengurus"><div class="wrap">
-    <div class="rv sec-top"><div class="hd"><h2>Struktur Kelas</h2></div><p class="lead">Pengurus kelas PE2026. Ketua kelas biasa disebut komting (komandan tingkat).</p></div>
+    <div class="rv sec-top"><div class="hd"><h2>Struktur Kelas</h2></div><p class="lead">Pengurus kelas PE2024. Ketua kelas biasa disebut komting (komandan tingkat). Ketuk foto untuk memperbesar.</p></div>
     <div class="org" id="org"></div>
   </div></section>
 
   <section id="galeri"><div class="wrap">
-    <div class="rv sec-top"><div class="hd"><h2>Galeri</h2></div><p class="lead">Momen kebersamaan kelas PE2026. Ketuk foto untuk memperbesar.</p></div>
+    <div class="rv sec-top"><div class="hd"><h2>Galeri</h2></div><p class="lead">Momen kebersamaan kelas PE2024. Ketuk foto untuk memperbesar.</p></div>
     <div class="gal" id="gal"></div>
   </div></section>
 
@@ -358,10 +409,10 @@ footer{background:var(--card);border-top:1.5px solid var(--line);padding:48px 0 
 <footer>
   <div class="wrap">
     <div class="ft">
-      <div><p class="big">PE2026</p><p>Pendidikan Ekonomi Kelas Putak, Universitas Nurul Huda, Sukaraja.</p></div>
+      <div><p class="big">PE2024</p><p>Pendidikan Ekonomi Kelas Putak, Universitas Nurul Huda, Sukaraja.</p></div>
       <ul id="fnav"></ul>
     </div>
-    <div class="copy">&copy; 2026 PE2026. Seluruh hak dilindungi.</div>
+    <div class="copy">&copy; 2026 PE2024. Seluruh hak dilindungi.</div>
   </div>
 </footer>
 
@@ -387,25 +438,25 @@ var MISI=[
   "Menjaga solidaritas dan komunikasi yang terbuka antaranggota.",
   "Aktif berkontribusi untuk kampus dan masyarakat sekitar."
 ];
-/* Semua gambar ada di folder img/ (di samping file ini): logo.png, ketua.jpg, wakil.jpg, sekretaris.jpg, bendahara.jpg, humas.jpg, galeri-1.jpg sampai galeri-6.jpg. Kosongkan foto:"" jika belum ada. */
-var KETUA={n:"Nama Ketua Kelas",r:"Ketua Kelas (Komting)",foto:"img/ketua.jpg"};
+/* Semua gambar struktur */
+var KETUA={n:"Azwil Yoga",r:"Ketua Kelas",foto:"img/ketua"};
 var PENGURUS=[
-  {n:"Nama Wakil Ketua",r:"Wakil Ketua",foto:"img/wakil.jpg"},
-  {n:"Nama Sekretaris",r:"Sekretaris",foto:"img/sekretaris.jpg"},
-  {n:"Nama Bendahara",r:"Bendahara",foto:"img/bendahara.jpg"},
-  {n:"Nama Anggota",r:"Seksi Humas",foto:"img/humas.jpg"}
+  {n:"?",r:"Wakil Ketua",foto:"img/wakil"},
+  {n:"?",r:"Sekretaris",foto:"img/sekretaris"},
+  {n:"Khorun Nisa",r:"Bendahara",foto:"img/bendahara"},
+  {n:"?",r:"Seksi Humas",foto:"img/humas"}
 ];
 var GALERI=[
-  {src:"img/galeri-1.jpg",cap:"Kegiatan kelas"},{src:"img/galeri-2.jpg",cap:"Kuliah bersama"},{src:"img/galeri-3.jpg",cap:"Diskusi kelompok"},
-  {src:"img/galeri-4.jpg",cap:"Acara kampus"},{src:"img/galeri-5.jpg",cap:"Foto bersama"},{src:"img/galeri-6.jpg",cap:"Kebersamaan"}
+  {src:"img/galeri-1",cap:"Kegiatan kelas"},{src:"img/galeri-2",cap:"Kuliah bersama"},{src:"img/galeri-3",cap:"Diskusi kelompok"},
+  {src:"img/galeri-4",cap:"Acara kampus"},{src:"img/galeri-5",cap:"Foto bersama"},{src:"img/galeri-6",cap:"Kebersamaan"}
 ];
 var KONTAK=[
-  {t:"WhatsApp Ketua Kelas",c:"+62 8xx-xxxx-xxxx",url:"https://wa.me/628000000000",i:"M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"},
-  {t:"Instagram",c:"@pe2026",url:"https://instagram.com/",i:"M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8M17.5 6.5v.01"},
-  {t:"Email",c:"pe2026@email.com",url:"mailto:pe2026@email.com",i:"M3 6h18v12H3zM3 7l9 7 9-7"},
+  {t:"WhatsApp Ketua Kelas",c:"+62 838 9213 9782",url:"https://wa.me/6283892139782",i:"M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"},
+  {t:"Instagram",c:"@pe2024",url:"https://instagram.com/pe2024",i:"M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8M17.5 6.5v.01"},
+  {t:"Email",c:"ekonomiprodi09@email.com",url:"mailto:ekonomiprodi09@email.com",i:"M3 6h18v12H3zM3 7l9 7 9-7"},
   {t:"Kampus",c:"Universitas Nurul Huda, Sukaraja",url:"https://maps.google.com/?q=Universitas+Nurul+Huda+Sukaraja",i:"M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11zM12 7.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5"}
 ];
-var RUNNING=["Pendidikan Ekonomi","Kelas Putak","Angkatan 2026","Universitas Nurul Huda","Sukaraja"];
+var RUNNING=["Pendidikan Ekonomi","Kelas Putak","Angkatan 2024","Universitas Nurul Huda","Sukaraja-Oku Timur"];
 /* ====== SELESAI ====== */
 
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
@@ -414,17 +465,22 @@ function svg(d){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+d
 var arrow='<svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 var userIc='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c1-4 4.5-6 8-6s7 2 8 6"/></svg>';
 var star='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z"/></svg>';
+/* Gambar dengan ekstensi otomatis */
+function im(base,alt,extra){
+  var has=/\.(jpe?g|png|webp|gif|avif)$/i.test(base);
+  return '<img src="'+esc(has?base:base+"."+EXT[0])+'"'+(has?' onerror="this.remove()"':' data-b="'+esc(base)+'" data-k="1" onerror="nx(this)"')+' alt="'+esc(alt)+'"'+(extra||"")+'>';
+}
 
-$("title").innerHTML="PE2026".split("").map(function(c,k){return '<span class="m" aria-hidden="true"><span class="ch" style="--k:'+k+'">'+c+'</span></span>'}).join("");
+$("title").innerHTML="PE2024".split("").map(function(c,k){return '<span class="m" aria-hidden="true"><span class="ch" style="--k:'+k+'">'+c+'</span></span>'}).join("");
 var navHtml=NAV.map(function(n){return '<li><a href="#'+n[0]+'">'+esc(n[1])+'</a></li>'}).join("");
 $("navl").innerHTML=navHtml;$("fnav").innerHTML=navHtml;
 var runSet='<span>'+RUNNING.map(function(w){return esc(w)+star}).join("")+'</span>';
 $("mq").innerHTML=runSet+runSet;
 $("nilai").innerHTML=NILAI.map(function(v,k){return '<div class="card rv rr"><div class="ic'+(k==1?' y':'')+'">'+svg(v.i)+'</div><div><h3>'+esc(v.t)+'</h3><p>'+esc(v.p)+'</p></div></div>'}).join("");
 $("misi").innerHTML=MISI.map(function(m,k){return '<div class="card mi rv rr"><div class="ic'+(k%2?' y':'')+'">'+(k+1)+'</div><p>'+esc(m)+'</p></div>'}).join("");
-function person(p,top){return '<div class="card pr rv'+(top?' top':'')+'"><button type="button" class="av" aria-label="Lihat foto '+esc(p.n)+'">'+userIc+(p.foto?'<img src="'+esc(p.foto)+'" alt="Foto '+esc(p.n)+'" onerror="this.remove()">':'')+'</button><span class="role">'+esc(p.r)+'</span><h3>'+esc(p.n)+'</h3></div>'}
+function person(p,top){return '<div class="card pr rv'+(top?' top':'')+'"><button type="button" class="av" aria-label="Lihat foto '+esc(p.n)+'">'+userIc+(p.foto?im(p.foto,"Foto "+p.n):'')+'</button><span class="role">'+esc(p.r)+'</span><h3>'+esc(p.n)+'</h3></div>'}
 $("org").innerHTML=person(KETUA,true)+'<div class="tier">'+PENGURUS.map(function(p){return person(p,false)}).join("")+'</div>';
-$("gal").innerHTML=GALERI.map(function(g){return '<button class="ph rv zi" type="button" aria-label="Perbesar: '+esc(g.cap)+'"><span>'+esc(g.cap)+'</span><img src="'+esc(g.src)+'" alt="'+esc(g.cap)+'" loading="lazy" onerror="this.remove()"></button>'}).join("");
+$("gal").innerHTML=GALERI.map(function(g){return '<button class="ph rv zi" type="button" aria-label="Perbesar: '+esc(g.cap)+'"><span>'+esc(g.cap)+'</span>'+im(g.src,g.cap,' loading="lazy"')+'</button>'}).join("");
 $("kontakl").innerHTML=KONTAK.map(function(c,k){return '<a class="card ct rv" href="'+esc(c.url)+'" target="_blank" rel="noopener"><div class="ic'+(k%2?' y':'')+'">'+svg(c.i)+'</div><span><span class="t">'+esc(c.t)+'</span><span class="c">'+esc(c.c)+'</span></span>'+arrow+'</a>'}).join("");
 /* arah masuk berbeda-beda */
 [].forEach.call(document.querySelectorAll(".visi,.about>.rv"),function(e){e.classList.add("rl")});
@@ -474,7 +530,8 @@ function startReveal(){
 }
 setTimeout(startReveal,rm?0:2200);
 
-/* Bar navigasi, progres, menu HP, penanda bagian aktif */
+/* Bar navigasi, progres, menu HP, penanda bagian aktif.
+   Di mobile: bar muncul begitu digulir dan hilang saat di paling atas. */
 var bar=$("bar"),prog=$("prog"),hero=$("hero"),tick=false,mob=matchMedia("(max-width:900px)");
 function onScroll(){
   if(tick)return;tick=true;
