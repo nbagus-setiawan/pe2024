@@ -8,7 +8,7 @@
 <meta name="description" content="Daftar anggota kelas PE2024, mahasiswa Pendidikan Ekonomi angkatan 2024 Kelas Putak, Universitas Nurul Huda (UNUHA) Sukaraja.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://pe2024.vercel.app/anggota.html">
-<link rel="icon" href="img/logo.png">
+<link rel="icon" href="img/logo.webp">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="id_ID">
 <meta property="og:site_name" content="PE2024">
@@ -46,14 +46,31 @@ img{max-width:100%}a{color:inherit}
 @keyframes rise{to{opacity:1;transform:none}}
 
 /* Navigasi atas & Bar progres */
-.bar{position:sticky;top:0;z-index:20;padding-top:env(safe-area-inset-top,0px);background:rgba(241,249,244,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{position:sticky;top:0;z-index:30;padding-top:env(safe-area-inset-top,0px);background:rgba(241,249,244,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .bar .row{width:min(1120px,100% - 40px);margin-inline:auto;display:flex;align-items:center;gap:12px;height:62px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:1.15rem;margin-right:auto}
 .brand img{width:32px;height:32px;object-fit:contain}
-.back{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 16px;border-radius:999px;text-decoration:none;font-size:.92rem;font-weight:700;color:var(--blue);background:var(--tint);transition:background .25s,transform .3s var(--ease)}
-.back svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-@media (hover:hover){.back:hover{background:#d0edd9;transform:translateX(-3px)}}
+
+nav ul{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px}
+nav a{display:block;padding:9px 15px;border-radius:999px;text-decoration:none;font-size:.92rem;font-weight:700;color:var(--muted);transition:background .25s,color .25s}
+nav a:hover,nav a.on{background:var(--tint);color:var(--blue)}
+.burger{display:none;width:44px;height:44px;border:0;background:var(--tint);border-radius:14px;color:var(--blue);cursor:pointer}
+.burger svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .prog{position:absolute;left:0;bottom:-1px;height:3px;width:100%;background:var(--blue);transform-origin:left;transform:scaleX(0)}
+
+@media (max-width:900px){
+  .burger{display:grid;place-items:center}
+  nav{
+    position:absolute;left:0;right:0;top:100%;background:var(--bg);
+    border-bottom:1px solid var(--line);padding:8px 20px 18px;display:none;
+    max-height:calc(100vh - 62px - env(safe-area-inset-top,0px));
+    overflow-y:auto;overscroll-behavior:contain;
+  }
+  .bar.open nav{display:block;animation:drop .35s var(--ease)}
+  nav ul{flex-direction:column;align-items:stretch;gap:4px}
+  nav a{padding:12px 16px;font-size:1rem;border-radius:12px}
+}
+@keyframes drop{from{opacity:0;transform:translateY(-8px)}}
 
 /* Kepala halaman / Hero */
 .head{position:relative;padding:clamp(44px,7vw,84px) 0 clamp(24px,4vw,36px);isolation:isolate;overflow:hidden}
@@ -331,13 +348,22 @@ footer a{text-decoration:none}footer a:hover{color:var(--blue)}
 <body>
 
 <div class="intro" aria-hidden="true">
-  <img class="logo" src="img/logo.png" data-b="img/logo" data-k="0" onerror="nx(this)" alt="">
+  <img class="logo" src="img/logo.webp" data-b="img/logo" data-k="0" onerror="nx(this)" alt="">
 </div>
 
 <header class="bar" id="bar">
   <div class="row">
-    <a class="brand" href="profile.html"><img src="img/logo.png" data-b="img/logo" data-k="0" onerror="nx(this)" alt="">PE2024</a>
-    <a class="back" href="profile.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Kembali</a>
+    <a class="brand" href="profile.html"><img src="img/logo.webp" data-b="img/logo" data-k="0" onerror="nx(this)" alt="">PE2024</a>
+    <nav aria-label="Navigasi utama">
+      <ul id="navl">
+        <li><a href="profile.html">Profil Kelas</a></li>
+        <li><a href="jadwal.html">Jadwal Kuliah</a></li>
+        <li><a class="on" href="anggota.html">Daftar Anggota</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
   </div>
   <div class="prog" id="prog"></div>
 </header>
@@ -426,7 +452,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--blue)}
 </div>
 
 <footer>
-  <div class="wrap"><span>&copy; 2026 PE2024. Seluruh hak dilindungi.</span><a href="profile.html">&larr; Kembali ke profil kelas</a></div>
+  <div class="wrap"><span>&copy; 2026 PE2024. Seluruh hak dilindungi.</span><div style="display:flex;gap:16px;flex-wrap:wrap"><a href="jadwal.html">Jadwal Kuliah</a><a href="profile.html">&larr; Profil Kelas</a></div></div>
 </footer>
 
 <script>
@@ -438,14 +464,17 @@ footer a{text-decoration:none}footer a:hover{color:var(--blue)}
    r    = jabatan (opsional)
    Jika foto belum ada, kartu menampilkan inisial nama. */
 var ANGGOTA=[
+  {n:"Ana Nikmatussolikhah", a:"Musi Rawas",          ig:"nixhma_h",           foto:"img/anggota/ana.webp"},
   {n:"Anisah",               a:"Ogan Ilir",           ig:"NISA'-",             foto:"img/anggota/anisah.webp"},
   {n:"Azwil Yoga Pratama",   a:"Muara Enim",          ig:"Azwil_yoga_pratama", foto:"img/anggota/azwil.webp",   r:"Ketua Kelas"},
   {n:"Dea Nanda Oktavia",    a:"Muara Enim",          ig:"deahnandaoktavia",   foto:"img/anggota/dea.webp",     r:"Seksi Humas"},
   {n:"Diah Ambar nur Aulia", a:"Muara Enim",          ig:"Gueeee_dy",          foto:"img/anggota/diyah.webp"},
   {n:"Eva Dwi Susanti",      a:"Ogan Ilir",           ig:"vvadi03",            foto:"img/anggota/eva.webp"},
+  {n:"Fora Septia",          a:"Oku Timur",           ig:"fora_sept",          foto:"img/anggota/fora.webp"},
   {n:"Khoirunnisa",          a:"Muara Enim",          ig:"bul_262",            foto:"img/anggota/khoirun.webp", r:"Bendahara"},
   {n:"Laila Tuzahro",        a:"Putak, Muara Enim",   ig:"tuzzahro.laila",     foto:"img/anggota/laila.webp"},
   {n:"Lisa Damaiyanti",      a:"Pali",                ig:"Simpllysa",          foto:"img/anggota/lisa.webp"},
+  {n:"Nadia Nailu Syifa",    a:"Muara Enim",          ig:"nadianailu_",        foto:"img/anggota/nadia.webp"},
   {n:"Nanda Bagus Setiawan", a:"Oku Timur",           ig:"nbagus.setiawan",    foto:"img/anggota/nanda.webp",   r:"Wakil Ketua"},
   {n:"Nisa kotrun Nada",     a:"Ogan Ilir",           ig:"tehnisa09",          foto:"img/anggota/kotrun.webp"},
   {n:"Novia Fitriginanti",   a:"Muara Enim",          ig:"Fitrighinanti",      foto:"img/anggota/novia.webp",   r:"Sekretaris"},
@@ -663,6 +692,13 @@ if(matchMedia("(hover:hover) and (pointer:fine)").matches&&!rm){
     }
   });
 }
+
+/* Navigasi & menu burger HP */
+var bar=document.getElementById("bar"),burger=document.getElementById("burger"),navl=document.getElementById("navl");
+function closeMenu(){bar.classList.remove("open");burger.setAttribute("aria-expanded","false")}
+burger.addEventListener("click",function(){var o=bar.classList.toggle("open");this.setAttribute("aria-expanded",o)});
+navl.addEventListener("click",function(e){if(e.target.closest("a"))closeMenu()});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeMenu()});
 
 /* Muncul saat digulir (Scroll reveal dengan jeda bertahap) */
 var items=[].slice.call(document.querySelectorAll(".rv"));

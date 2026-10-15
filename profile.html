@@ -9,7 +9,7 @@
 <meta name="keywords" content="PE2024, Pendidikan Ekonomi, Kelas Putak, UNUHA, Universitas Nurul Huda, Sukaraja, mahasiswa angkatan 2024">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://pe2024.vercel.app/profile.html">
-<link rel="icon" href="img/logo.png">
+<link rel="icon" href="img/logo.webp">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="id_ID">
@@ -33,7 +33,7 @@
   "name": "PE2024 - Pendidikan Ekonomi Kelas Putak",
   "alternateName": "PE2024",
   "url": "https://pe2024.vercel.app/profile.html",
-  "logo": "https://pe2024.vercel.app/img/logo.png",
+  "logo": "https://pe2024.vercel.app/img/logo.webp",
   "image": "https://pe2024.vercel.app/img/og-image.png",
   "description": "Mahasiswa Pendidikan Ekonomi angkatan 2024 Kelas Putak, Universitas Nurul Huda, Sukaraja.",
   "parentOrganization": { "@type": "CollegeOrUniversity", "name": "Universitas Nurul Huda" }
@@ -369,12 +369,12 @@ h1{max-width:100%}
 <body>
 
 <div class="intro" aria-hidden="true">
-  <img class="logo" src="img/logo.png" data-b="img/logo" data-k="0" onerror="nx(this)" alt="">
+  <img class="logo" src="img/logo.webp" data-b="img/logo" data-k="0" onerror="nx(this)" alt="">
 </div>
 
 <header class="bar" id="bar">
   <div class="row">
-    <a class="brand" href="#top"><img src="img/logo.png" data-b="img/logo" data-k="0" onerror="nx(this)" alt="">PE2024</a>
+    <a class="brand" href="#top"><img src="img/logo.webp" data-b="img/logo" data-k="0" onerror="nx(this)" alt="">PE2024</a>
     <nav aria-label="Navigasi utama"><ul id="navl"></ul></nav>
     <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
@@ -386,7 +386,7 @@ h1{max-width:100%}
     <div class="dots"></div><div class="glow" aria-hidden="true"></div>
     <div class="wrap">
       <div>
-        <img class="logo fade" src="img/logo.png" data-b="img/logo" data-k="0" onerror="nx(this)" alt="Logo PE2024">
+        <img class="logo fade" src="img/logo.webp" data-b="img/logo" data-k="0" onerror="nx(this)" alt="Logo PE2024">
         <h1 id="title" aria-label="PE2024"></h1>
         <p class="tag fade" style="--i:3"><b>Pendidikan Ekonomi</b>Mengenal lebih dekat Kelas Putak, mahasiswa Pendidikan Ekonomi angkatan 2024 di Universitas Nurul Huda. Website ini menjadi wadah untuk mendokumentasikan perjalanan akademik, menampilkan hasil karya, mengeksplorasi pengalaman, serta merepresentasikan kompetensi dan kreativitas mahasiswa dalam proses belajar dan berkembang.</p>
         <div class="ctas fade" style="--i:4">
@@ -502,7 +502,7 @@ var GALERI=[
 ];
 var KONTAK=[
   {t:"WhatsApp Ketua Kelas",c:"+62 838 9213 9782",url:"https://wa.me/6283892139782",i:"M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"},
-  {t:"Instagram",c:"@pe2024",url:"https://instagram.com/pe2024",i:"M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8M17.5 6.5v.01"},
+  {t:"Instagram",c:"@pendidikanekonomi2024",url:"https://instagram.com/pendidikanekonomi2024",i:"M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8M17.5 6.5v.01"},
   {t:"Email",c:"ekonomiprodi09@email.com",url:"mailto:ekonomiprodi09@email.com",i:"M3 6h18v12H3zM3 7l9 7 9-7"},
   {t:"Kampus",c:"Universitas Nurul Huda, Sukaraja",url:"https://maps.google.com/?q=Universitas+Nurul+Huda+Sukaraja",i:"M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11zM12 7.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5"}
 ];
@@ -523,7 +523,8 @@ function im(base,alt,extra){
 
 $("title").innerHTML="PE2024".split("").map(function(c,k){return '<span class="m" aria-hidden="true"><span class="ch" style="--k:'+k+'">'+c+'</span></span>'}).join("");
 var navHtml=NAV.map(function(n){return '<li><a href="#'+n[0]+'">'+esc(n[1])+'</a></li>'}).join("");
-$("navl").innerHTML=navHtml;$("fnav").innerHTML=navHtml;
+var pageLinks='<li><a href="jadwal.html">Jadwal Kuliah</a></li><li><a href="anggota.html">Anggota</a></li>';
+$("navl").innerHTML=navHtml+pageLinks;$("fnav").innerHTML=navHtml+pageLinks;
 var runSet='<span>'+RUNNING.map(function(w){return esc(w)+star}).join("")+'</span>';
 $("mq").innerHTML=runSet+runSet;
 $("nilai").innerHTML=NILAI.map(function(v,k){return '<div class="card rv rr"><div class="ic'+(k==1?' y':'')+'">'+svg(v.i)+'</div><div><h3>'+esc(v.t)+'</h3><p>'+esc(v.p)+'</p></div></div>'}).join("");
