@@ -170,20 +170,20 @@ main{flex:1 0 auto;padding-bottom:clamp(48px,8vw,90px)}
     box-shadow:0 12px 0 -3px rgba(10,143,69,.15);
     background-size:100% 100%;
   }
-  .mb:hover .ft img{transform:scale(1.07)}
+  .mb:hover .mb-photo img{transform:scale(1.07)}
   .mb:hover .hint svg.go{transform:translateX(4px);color:var(--blue)}
   .mb:hover .hint{color:var(--blue)}
 }
 .mb:active{transform:scale(.975);transition-duration:.08s}
 .mb[hidden]{display:none}
 
-.ft{
+.mb-photo{
   position:relative;display:block;width:100%;aspect-ratio:4/5;
   background:var(--tint);color:var(--blue);overflow:hidden;
 }
-.mb:nth-child(3n+2) .ft{background:#FFF1C7;color:#7A5A00}
-.ft .ini{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(1.8rem,7vw,2.6rem);font-weight:700;letter-spacing:.02em}
-.ft img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.mb:nth-child(3n+2) .mb-photo{background:#FFF1C7;color:#7A5A00}
+.mb-photo .ini{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(1.8rem,7vw,2.6rem);font-weight:700;letter-spacing:.02em}
+.mb-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
 .no{position:absolute;top:10px;left:10px;z-index:1;min-width:30px;height:30px;padding:0 9px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--ink);font-size:.78rem;font-weight:700;display:grid;place-items:center;box-shadow:0 2px 6px rgba(0,0,0,.08)}
 .role{position:absolute;top:10px;right:10px;z-index:1;padding:3px 11px;border-radius:999px;background:var(--sun);color:var(--ink);font-size:.72rem;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,.08)}
 
@@ -364,10 +364,12 @@ main{flex:1 0 auto;padding-bottom:clamp(48px,8vw,90px)}
 .totop svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 @media (hover:hover){.totop.show:hover{transform:translateY(-4px)}}
 
-/* Footer */
-footer{margin-top:auto;background:var(--card);border-top:1.5px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
-footer a{text-decoration:none}footer a:hover{color:var(--blue)}
+/* Footer (Konsisten & Rapi) */
+footer{margin-top:auto;background:var(--card);border-top:1.5px solid var(--line);padding:24px 0;color:var(--muted);font-size:.88rem}
+.ft-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.ft-links{display:flex;gap:18px;align-items:center}
+.ft-links a{text-decoration:none;color:var(--muted);transition:color .2s}
+.ft-links a:hover{color:var(--blue)}
 
 @media (max-width:360px){.wrap,.bar .row{width:calc(100% - 28px)}}
 @media (min-width:1500px){.wrap,.bar .row{width:min(1280px,100% - 80px)}}
@@ -489,8 +491,13 @@ footer a{text-decoration:none}footer a:hover{color:var(--blue)}
 </div>
 
 <footer>
-  <div class="wrap ft">
-    &copy; 2026 PE2024 &middot; Universitas Nurul Huda. Seluruh hak dilindungi.
+  <div class="wrap ft-row">
+    <span>&copy; 2026 PE2024 &middot; Universitas Nurul Huda. Seluruh hak dilindungi.</span>
+    <div class="ft-links">
+      <a href="index.html">Profil Kelas</a>
+      <a href="jadwal.html">Jadwal Kuliah</a>
+      <a href="anggota.html">Daftar Anggota</a>
+      <a href="karya.html">Karya</a>
     </div>
   </div>
 </footer>
@@ -532,7 +539,7 @@ $("title").innerHTML="Anggota PE2024".split("").map(function(c,k){
 $("grid").innerHTML=ANGGOTA.map(function(m,k){
   var ig=String(m.ig||"").replace(/^@/,"").trim();
   return '<article class="mb rv" data-idx="'+k+'" data-s="'+esc((m.n+" "+m.a+" "+ig+" "+(m.r||"")).toLowerCase())+'" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Lihat profil lengkap '+esc(m.n)+'">'+
-    '<div class="ft"><span class="ini" aria-hidden="true">'+esc(ini(m.n))+'</span>'+(m.foto?im(m.foto,"Foto "+m.n):'')+
+    '<div class="mb-photo"><span class="ini" aria-hidden="true">'+esc(ini(m.n))+'</span>'+(m.foto?im(m.foto,"Foto "+m.n):'')+
     '<span class="no">'+(k+1)+'</span>'+(m.r?'<span class="role">'+esc(m.r)+'</span>':'')+'</div>'+
     '<div class="bd"><h2>'+esc(m.n)+'</h2>'+
     '<span class="hint"><span>Lihat profil</span>'+arrow+'</span>'+
