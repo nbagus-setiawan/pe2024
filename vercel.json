@@ -1,0 +1,15 @@
+{
+  "headers": [
+    {
+      "source": "/tugas.html",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+    },
+    {
+      "source": "/tugas",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }]
+    }
+  ],
+  "redirects": [
+    { "source": "/profile.html", "destination": "/", "permanent": true }
+  ]
+}
