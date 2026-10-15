@@ -523,7 +523,7 @@ function im(base,alt,extra){
 
 $("title").innerHTML="PE2024".split("").map(function(c,k){return '<span class="m" aria-hidden="true"><span class="ch" style="--k:'+k+'">'+c+'</span></span>'}).join("");
 var navHtml=NAV.map(function(n){return '<li><a href="#'+n[0]+'">'+esc(n[1])+'</a></li>'}).join("");
-var pageLinks='<li><a href="jadwal.html">Jadwal Kuliah</a></li><li><a href="anggota.html">Anggota</a></li>';
+var pageLinks='<li><a href="jadwal.html">Jadwal Kuliah</a></li><li><a href="anggota.html">Anggota</a></li><li><a href="karya.html">Karya</a></li>';
 $("navl").innerHTML=navHtml+pageLinks;$("fnav").innerHTML=navHtml+pageLinks;
 var runSet='<span>'+RUNNING.map(function(w){return esc(w)+star}).join("")+'</span>';
 $("mq").innerHTML=runSet+runSet;
